@@ -1,5 +1,6 @@
 package com.chula.harakamall.ui.screens.item
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,6 +14,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
@@ -36,15 +38,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.chula.harakamall.R
+import com.chula.harakamall.navigation.ROUT_INTENT
 import com.chula.harakamall.ui.theme.neworange
 import com.chula.harakamall.ui.theme.newwhite
 
@@ -54,6 +59,7 @@ import com.chula.harakamall.ui.theme.newwhite
 fun ItemScreen(navController: NavController){
     Column (modifier = Modifier.fillMaxSize()
     ){
+        val mContext = LocalContext.current
 
         //TopAppBar
         TopAppBar(
@@ -75,8 +81,10 @@ fun ItemScreen(navController: NavController){
                 IconButton(onClick = {}) {
                     Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "shoppingCart")
                 }
-                IconButton(onClick = {}) {
-                    Icon(imageVector = Icons.Default.Notifications, contentDescription = "Notifications")
+                IconButton(onClick = {
+                    navController.navigate(ROUT_INTENT)
+                }) {
+                    Icon(imageVector = Icons.Default.ArrowForward, contentDescription = "Notifications")
                 }
 
             }
@@ -175,7 +183,11 @@ fun ItemScreen(navController: NavController){
                    }
                    Spacer(modifier = Modifier.height(10.dp))
 
-                   Button(onClick = {},
+                   Button(onClick = {
+                       val callIntent=Intent(Intent.ACTION_DIAL)
+                       callIntent.data="tel:0757036970".toUri()
+                       mContext.startActivity(callIntent)
+                   },
                        colors = ButtonDefaults.buttonColors(neworange),
                        shape = RoundedCornerShape(10.dp),
                        modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)
@@ -255,7 +267,11 @@ fun ItemScreen(navController: NavController){
                    }
                    Spacer(modifier = Modifier.height(10.dp))
 
-                   Button(onClick = {},
+                   Button(onClick = {
+                       val callIntent=Intent(Intent.ACTION_DIAL)
+                       callIntent.data="tel:0757036970".toUri()
+                       mContext.startActivity(callIntent)
+                   },
                        colors = ButtonDefaults.buttonColors(neworange),
                        shape = RoundedCornerShape(10.dp),
                        modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)
@@ -336,7 +352,11 @@ fun ItemScreen(navController: NavController){
                    }
                    Spacer(modifier = Modifier.width(10.dp))
 
-                   Button(onClick = {},
+                   Button(onClick = {
+                       val callIntent=Intent(Intent.ACTION_DIAL)
+                       callIntent.data="tel:0757036970".toUri()
+                       mContext.startActivity(callIntent)
+                   },
                        colors = ButtonDefaults.buttonColors(neworange),
                        shape = RoundedCornerShape(10.dp),
                        modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)

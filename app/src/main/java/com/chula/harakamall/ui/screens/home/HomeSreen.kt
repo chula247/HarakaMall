@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.chula.harakamall.R
+import com.chula.harakamall.navigation.ROUT_START
 
 @Composable
 fun HomeScreen(navController: NavController){
@@ -55,7 +56,9 @@ fun HomeScreen(navController: NavController){
             fontWeight = FontWeight.Bold
         )
 
-        Button(onClick = {},
+        Button(onClick = {
+            navController.navigate(ROUT_START)
+        },
             colors = ButtonDefaults.buttonColors(Color.Magenta),
             shape = RoundedCornerShape(10.dp)
 

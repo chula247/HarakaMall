@@ -1,5 +1,6 @@
 package com.chula.harakamall.ui.screens.dashboard
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,9 +15,15 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -27,10 +34,16 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.chula.harakamall.R
@@ -62,6 +75,12 @@ fun DashboardScreen(navController: NavController){
                     }
                 )
 
+                Text(
+                    text = "A mall or shopping center is a large building that is full of many smaller shops and stores. It is different from earlier markets or bazaars because most of ...",
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold
+                )
+
 
 
             }
@@ -78,8 +97,40 @@ fun DashboardScreen(navController: NavController){
 
             ){
                 //Contents of Card
+                Column (modifier = Modifier.verticalScroll(rememberScrollState())) {
+                    //Row
+                    Row(modifier = Modifier.padding(start = 20.dp)) {
+                        Image(
+                            painter = painterResource(R.drawable.mall2),
+                            contentDescription = "home",
+                            modifier = Modifier.width(200.dp).height(150.dp),
+                            contentScale = ContentScale.FillWidth
+                        )
 
-            }
+                        Spacer(modifier = Modifier.width(10.dp))
+
+                        Column() {
+                            Text(
+                                text = "Discover how shopping center architecture can affect consumer behavior, increase retail visibility, and keep guests around longer.",
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.ExtraBold
+
+                            )
+
+
+
+                        }
+
+
+                    }
+                    //End of Row
+                }
+
+
+
+
+
+                }
 
         }
         //End of Box
@@ -124,7 +175,7 @@ fun DashboardScreen(navController: NavController){
                     verticalArrangement = Arrangement.Center
                 ){
                     Image(
-                        painter = painterResource(R.drawable.home),
+                        painter = painterResource(R.drawable.about),
                         contentDescription = "home",
                         modifier = Modifier.size(100.dp)
                     )
@@ -156,7 +207,7 @@ fun DashboardScreen(navController: NavController){
                     verticalArrangement = Arrangement.Center
                 ){
                     Image(
-                        painter = painterResource(R.drawable.con),
+                        painter = painterResource(R.drawable.contacts),
                         contentDescription = "home",
                         modifier = Modifier.size(100.dp)
                     )
@@ -180,7 +231,7 @@ fun DashboardScreen(navController: NavController){
                     verticalArrangement = Arrangement.Center
                 ){
                     Image(
-                        painter = painterResource(R.drawable.home),
+                        painter = painterResource(R.drawable.products),
                         contentDescription = "home",
                         modifier = Modifier.size(100.dp)
                     )

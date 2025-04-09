@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.chula.harakamall.ui.screens.about.AboutScreen
+import com.chula.harakamall.ui.screens.contact.ContactScreen
 import com.chula.harakamall.ui.screens.dashboard.DashboardScreen
 import com.chula.harakamall.ui.screens.home.HomeScreen
 import com.chula.harakamall.ui.screens.intent.IntentScreen
@@ -45,6 +46,9 @@ fun AppNavHost(
 
         composable(ROUT_DASHBOARD) {
             DashboardScreen(navController)
+        }
+        composable(ROUT_CONTACT) {
+            ContactScreen(navController)
         }
 
     }

@@ -3,6 +3,7 @@ package com.chula.harakamall.ui.screens.dashboard
 import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,7 +21,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -47,6 +50,12 @@ import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.chula.harakamall.R
+import com.chula.harakamall.navigation.ROUT_ABOUT
+import com.chula.harakamall.navigation.ROUT_CONTACT
+import com.chula.harakamall.navigation.ROUT_HOME
+import com.chula.harakamall.navigation.ROUT_INTENT
+import com.chula.harakamall.navigation.ROUT_ITEM
+import com.chula.harakamall.navigation.ROUT_START
 import com.chula.harakamall.ui.theme.neworange
 import com.chula.harakamall.ui.theme.neworange1
 
@@ -55,7 +64,10 @@ import com.chula.harakamall.ui.theme.neworange1
 @Composable
 fun DashboardScreen(navController: NavController){
 
-    Column (modifier = Modifier.fillMaxSize().background(neworange)
+    Column (modifier = Modifier.fillMaxSize()
+        .background(neworange)
+        .verticalScroll(rememberScrollState()
+    )
     ){
 
         //Box
@@ -72,7 +84,10 @@ fun DashboardScreen(navController: NavController){
                         IconButton(onClick = {}) {
                             Icon(imageVector = Icons.Default.Menu, contentDescription = "menu")
                         }
-                    }
+                    },
+
+
+
                 )
 
                 Text(
@@ -97,14 +112,13 @@ fun DashboardScreen(navController: NavController){
 
             ){
                 //Contents of Card
-                Column (modifier = Modifier.verticalScroll(rememberScrollState())) {
-                    //Row
-                    Row(modifier = Modifier.padding(start = 20.dp)) {
+
+
                         Image(
                             painter = painterResource(R.drawable.mall2),
                             contentDescription = "home",
-                            modifier = Modifier.width(300.dp).height(200.dp),
-                            contentScale = ContentScale.FillWidth
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.FillBounds
                         )
 
                         Spacer(modifier = Modifier.width(10.dp))
@@ -122,9 +136,9 @@ fun DashboardScreen(navController: NavController){
                         }
 
 
-                    }
+
                     //End of Row
-                }
+
 
 
 
@@ -142,7 +156,10 @@ fun DashboardScreen(navController: NavController){
 
             //Card1
             Card (
-                modifier = Modifier.width(150.dp).height(180.dp),
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable { navController.navigate(ROUT_HOME) },
                 elevation = CardDefaults.cardElevation()
             ){
                 Column (
@@ -166,7 +183,10 @@ fun DashboardScreen(navController: NavController){
 
             //Card2
             Card (
-                modifier = Modifier.width(150.dp).height(180.dp),
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable { navController.navigate(ROUT_ABOUT) },
                 elevation = CardDefaults.cardElevation()
             ){
                 Column (
@@ -198,7 +218,11 @@ fun DashboardScreen(navController: NavController){
 
             //Card1
             Card (
-                modifier = Modifier.width(150.dp).height(180.dp),
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable { navController.navigate(ROUT_CONTACT) }
+                ,
                 elevation = CardDefaults.cardElevation()
             ){
                 Column (
@@ -222,7 +246,10 @@ fun DashboardScreen(navController: NavController){
 
             //Card2
             Card (
-                modifier = Modifier.width(150.dp).height(180.dp),
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable { navController.navigate(ROUT_ITEM) },
                 elevation = CardDefaults.cardElevation()
             ){
                 Column (

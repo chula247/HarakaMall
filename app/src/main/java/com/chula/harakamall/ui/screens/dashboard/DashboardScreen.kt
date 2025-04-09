@@ -103,7 +103,7 @@ fun DashboardScreen(navController: NavController){
                         Image(
                             painter = painterResource(R.drawable.mall2),
                             contentDescription = "home",
-                            modifier = Modifier.width(200.dp).height(150.dp),
+                            modifier = Modifier.width(300.dp).height(200.dp),
                             contentScale = ContentScale.FillWidth
                         )
 
@@ -111,7 +111,7 @@ fun DashboardScreen(navController: NavController){
 
                         Column() {
                             Text(
-                                text = "Discover how shopping center architecture can affect consumer behavior, increase retail visibility, and keep guests around longer.",
+                                text = "",
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.ExtraBold
 

@@ -84,22 +84,6 @@ fun BarakaScreen(navController: NavController){
     var selectedIndex by remember { mutableStateOf(0) }
 
     Scaffold(
-        //TopBar
-        topBar = {
-            TopAppBar(
-                title = { Text("Baraka") },
-                navigationIcon = {
-                    IconButton(onClick = { /* Handle back/nav */ }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = neworange,
-                    titleContentColor = Color.White,
-                    navigationIconContentColor = Color.White
-                )
-            )
-        },
 
         //BottomBar
         bottomBar = {
@@ -348,6 +332,10 @@ fun BarakaScreen(navController: NavController){
 
                                         )
 
+                                        Text(
+                                            text = "Today .10pm",
+                                            fontSize = 10.sp
+                                        )
                                         Text(
                                             text = "Today .10pm",
                                             fontSize = 10.sp

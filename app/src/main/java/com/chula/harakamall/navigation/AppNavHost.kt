@@ -10,6 +10,8 @@ import com.chula.harakamall.ui.screens.about.AboutScreen
 import com.chula.harakamall.ui.screens.baraka.BarakaScreen
 import com.chula.harakamall.ui.screens.contact.ContactScreen
 import com.chula.harakamall.ui.screens.dashboard.DashboardScreen
+import com.chula.harakamall.ui.screens.form.FormScreen
+import com.chula.harakamall.ui.screens.form1.Form1Screen
 import com.chula.harakamall.ui.screens.home.HomeScreen
 import com.chula.harakamall.ui.screens.intent.IntentScreen
 import com.chula.harakamall.ui.screens.item.ItemScreen
@@ -61,6 +63,9 @@ fun AppNavHost(
         }
         composable(ROUT_BARAKA) {
            BarakaScreen(navController)
+        }
+        composable(ROUT_FORM1) {
+           Form1Screen(navController)
         }
 
     }

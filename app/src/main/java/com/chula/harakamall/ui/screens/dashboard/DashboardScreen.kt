@@ -53,6 +53,7 @@ import com.chula.harakamall.R
 import com.chula.harakamall.navigation.ROUT_ABOUT
 import com.chula.harakamall.navigation.ROUT_BARAKA
 import com.chula.harakamall.navigation.ROUT_CONTACT
+import com.chula.harakamall.navigation.ROUT_FORM1
 import com.chula.harakamall.navigation.ROUT_HOME
 import com.chula.harakamall.navigation.ROUT_INTENT
 import com.chula.harakamall.navigation.ROUT_ITEM
@@ -283,6 +284,33 @@ fun DashboardScreen(navController: NavController){
                     .width(150.dp)
                     .height(180.dp)
                     .clickable { navController.navigate(ROUT_BARAKA) },
+                elevation = CardDefaults.cardElevation()
+            ){
+                Column (
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ){
+                    Image(
+                        painter = painterResource(R.drawable.bk),
+                        contentDescription = "home",
+                        modifier = Modifier.size(100.dp)
+                    )
+                    Text(text = "Products", fontSize = 15.sp)
+                }
+
+
+            }
+
+            //End of Card2
+
+            Spacer(modifier = Modifier.width(20.dp))
+//Card2
+            Card (
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable { navController.navigate(ROUT_FORM1) },
                 elevation = CardDefaults.cardElevation()
             ){
                 Column (

@@ -7,18 +7,21 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.chula.harakamall.ui.screens.about.AboutScreen
+import com.chula.harakamall.ui.screens.baraka.BarakaScreen
 import com.chula.harakamall.ui.screens.contact.ContactScreen
 import com.chula.harakamall.ui.screens.dashboard.DashboardScreen
 import com.chula.harakamall.ui.screens.home.HomeScreen
 import com.chula.harakamall.ui.screens.intent.IntentScreen
 import com.chula.harakamall.ui.screens.item.ItemScreen
+import com.chula.harakamall.ui.screens.service.ServiceScreen
+import com.chula.harakamall.ui.screens.splash.SplashScreen
 import com.chula.harakamall.ui.screens.start.StartScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_DASHBOARD
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -49,6 +52,15 @@ fun AppNavHost(
         }
         composable(ROUT_CONTACT) {
             ContactScreen(navController)
+        }
+        composable(ROUT_SERVICE) {
+           ServiceScreen(navController)
+        }
+        composable(ROUT_SPLASH) {
+           SplashScreen(navController)
+        }
+        composable(ROUT_BARAKA) {
+           BarakaScreen(navController)
         }
 
     }

@@ -51,6 +51,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.chula.harakamall.R
 import com.chula.harakamall.navigation.ROUT_ABOUT
+import com.chula.harakamall.navigation.ROUT_BARAKA
 import com.chula.harakamall.navigation.ROUT_CONTACT
 import com.chula.harakamall.navigation.ROUT_HOME
 import com.chula.harakamall.navigation.ROUT_INTENT
@@ -66,8 +67,7 @@ fun DashboardScreen(navController: NavController){
 
     Column (modifier = Modifier.fillMaxSize()
         .background(neworange)
-        .verticalScroll(rememberScrollState()
-    )
+        .verticalScroll(rememberScrollState())
     ){
 
         //Box
@@ -270,9 +270,42 @@ fun DashboardScreen(navController: NavController){
 
             //End of Card2
 
+
+
         }
 
         //End of Row
+        Row (modifier = Modifier.padding(20.dp)){
+
+            //Card2
+            Card (
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable { navController.navigate(ROUT_BARAKA) },
+                elevation = CardDefaults.cardElevation()
+            ){
+                Column (
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ){
+                    Image(
+                        painter = painterResource(R.drawable.bk),
+                        contentDescription = "home",
+                        modifier = Modifier.size(100.dp)
+                    )
+                    Text(text = "Products", fontSize = 15.sp)
+                }
+
+
+            }
+
+            //End of Card2
+
+
+
+        }
 
 
 

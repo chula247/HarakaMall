@@ -141,7 +141,7 @@ fun Form1Screen(navController: NavController){
                     .fillMaxWidth()
                     .height(600.dp)
                     .align(alignment = Alignment.BottomEnd)
-                    .offset(y = 400.dp),
+                    .offset(y = 350.dp),
                 shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
                 colors = CardDefaults.cardColors()
 

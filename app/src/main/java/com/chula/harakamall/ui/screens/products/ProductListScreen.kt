@@ -230,7 +230,7 @@ fun ProductItem(navController: NavController, product: Product, viewModel: Produ
                     // Edit Product
                     IconButton(
                         onClick = {
-                            navController.navigate(ROUT_EDIT_PRODUCT)
+                            navController.navigate(editProductRoute(product.id))
                         }
                     ) {
                         Icon(

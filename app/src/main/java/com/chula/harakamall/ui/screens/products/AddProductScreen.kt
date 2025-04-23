@@ -162,7 +162,7 @@ fun AddProductScreen(navController: NavController, viewModel: ProductViewModel) 
                         val priceValue = price.toDoubleOrNull()
                         if (priceValue != null) {
                             imageUri?.toString()?.let { viewModel.addProduct(name, priceValue, phone,it) }
-                            navController.popBackStack()
+                            navController.navigate(ROUT_PRODUCT_LIST)
                         }
                     },
                     modifier = Modifier.fillMaxWidth(),
